@@ -1,0 +1,490 @@
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---------- PAGE ---------- */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(8, 15, 25, 0.40),
+            rgba(8, 15, 25, 0.60)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* ---------- MAIN CARD ---------- */
+
+.container {
+    width: 100%;
+    max-width: 560px;
+
+    padding: 38px;
+
+    border-radius: 24px;
+
+    background: rgba(20, 25, 35, 0.72);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+
+    animation: appear 0.6s ease;
+}
+
+
+/* ---------- TITLES ---------- */
+
+h1 {
+    font-size: 34px;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 28px;
+
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+
+/* ---------- GENERAL INPUTS ---------- */
+
+.container input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.container input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.container input:focus {
+    border-color: rgba(255, 255, 255, 0.35);
+
+    background: rgba(255, 255, 255, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------- GENERAL BUTTONS ---------- */
+
+button {
+    border: none;
+
+    padding: 13px 16px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        opacity 0.18s ease,
+        background 0.18s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ---------- LOGIN / SIGNUP BUTTONS ---------- */
+
+#signup-btn,
+#login-btn {
+    width: 100%;
+}
+
+#signup-btn {
+    margin-bottom: 28px;
+
+    background: white;
+    color: #161b26;
+}
+
+#signup-btn:hover {
+    background: #f2f2f2;
+}
+
+#login-btn {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #d9dee8
+    );
+
+    color: #161b26;
+}
+
+
+/* ---------- LOGIN MESSAGE ---------- */
+
+#message {
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #ffb6b6;
+}
+
+
+/* ---------- LOGIN SECTION DIVIDER ---------- */
+
+.container h2:nth-of-type(2) {
+    margin-top: 8px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+/* ---------- TODO FORM ---------- */
+
+#todo-form {
+    display: flex;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin-bottom: 25px;
+}
+
+
+/* ---------- TODO INPUT ---------- */
+
+#todo-form #task-input {
+    flex: 1;
+
+    width: auto;
+
+    min-width: 0;
+
+    margin-bottom: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    outline: none;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    transition:
+        border 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+#task-input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+#task-input:focus {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    background: rgba(255, 255, 255, 0.15);
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------- TODO ADD BUTTON ---------- */
+
+#todo-form button {
+    width: auto;
+
+    min-width: 100px;
+
+    flex-shrink: 0;
+
+    background: white;
+
+    color: #111827;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#todo-form button:hover {
+    background: #f1f1f1;
+}
+
+
+/* ---------- TODO LIST ---------- */
+
+#todo-list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* ---------- INDIVIDUAL TODO ---------- */
+
+#todo-list li {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border 0.2s ease;
+
+    animation: todoAppear 0.3s ease;
+}
+
+#todo-list li:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255, 255, 255, 0.13);
+
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+
+/* ---------- TODO TEXT ---------- */
+
+#todo-list li span {
+    flex: 1;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    word-break: break-word;
+}
+
+
+/* ---------- DONE TASK ---------- */
+
+.done {
+    text-decoration: line-through;
+
+    opacity: 0.45;
+}
+
+
+/* ---------- TODO ACTION BUTTONS ---------- */
+
+#todo-list li button {
+    width: auto;
+
+    padding: 9px 13px;
+}
+
+
+/* ---------- DONE BUTTON ---------- */
+
+#todo-list li button:first-of-type {
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+}
+
+#todo-list li button:first-of-type:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+
+/* ---------- DELETE BUTTON ---------- */
+
+#todo-list li button:last-of-type {
+    background: rgba(255, 80, 80, 0.14);
+
+    color: #ffb4b4;
+}
+
+#todo-list li button:last-of-type:hover {
+    background: rgba(255, 80, 80, 0.25);
+}
+
+/* ---------- LOGOUT BUTTON ---------- */
+
+#logout-btn {
+    width: 100%;
+    margin-bottom: 22px;
+
+    background: rgba(255, 255, 255, 0.10);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#logout-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.footer {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.42);
+}
+
+.footer-tagline {
+    margin-top: 6px !important;
+    font-size: 12px !important;
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
+
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes todoAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 18px;
+    }
+
+    .container {
+        padding: 25px;
+
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    #todo-form {
+        flex-direction: column;
+    }
+
+    #todo-form #task-input {
+        width: 100%;
+    }
+
+    #todo-form button {
+        width: 100%;
+    }
+
+    #todo-list li {
+        flex-wrap: wrap;
+    }
+}
