@@ -290,13 +290,28 @@ app.use((error, req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+// Remove the app.listen() code and replace with:
 
-initializeDatabase().then(() => {
+// For Vercel serverless
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  // For local development
+  const PORT = process.env.PORT || 3000;
+  
+  initializeDatabase().then(() => {
     app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
+      console.log(`Server running on http://localhost:${PORT}`);
     });
-}).catch((error) => {
+  }).catch((error) => {
     console.error("Failed to initialize database:", error);
     process.exit(1);
-});
+  });
+}
+
+// Initialize DB on Vercel
+if (process.env.VERCEL) {
+  initializeDatabase().catch((error) => {
+    console.error("Failed to initialize database:", error);
+  });
+}
