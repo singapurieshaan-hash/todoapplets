@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 .neon
 .env
 .env.local
