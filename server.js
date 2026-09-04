@@ -1,9 +1,11 @@
 const path = require("path");
 const dotenv = require("dotenv");
 
-dotenv.config({
-    path: path.join(__dirname, ".env.local")
-});
+if (!process.env.VERCEL) {
+    dotenv.config({
+        path: path.join(__dirname, ".env.local")
+    });
+}
 
 const express = require("express");
 const bcrypt = require("bcrypt");
@@ -229,16 +231,18 @@ app.delete("/todos/:id", authenticate, async (req, res, next) => {
 });
 
   
-initializeDatabase()
-    .then(() => {
+if (process.env.VERCEL) {
+    module.exports = app;
+} else {
+    const PORT = process.env.PORT || 3000;
 
-        app.listen(PORT, () => {
-            console.log(`Server running on http://localhost:${PORT}`);
+    initializeDatabase()
+        .then(() => {
+            app.listen(PORT, () => {
+                console.log(`Server running on http://localhost:${PORT}`);
+            });
+        })
+        .catch(error => {
+            console.error("Failed to initialize database:", error);
         });
-
-    })
-    .catch(error => {
-
-        console.error("Failed to connect to database:", error);
-
-    });
+}
